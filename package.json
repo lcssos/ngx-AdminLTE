@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --disableHostCheck",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -39,7 +39,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.1",
+    "@angular/cli": "^1.2.0",
     "@angular/compiler-cli": "^4.1.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.70",
@@ -55,6 +55,6 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "typescript": "~2.3.4"
   }
 }
