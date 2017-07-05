@@ -32,7 +32,7 @@ export class HttpInterceptorService extends Http {
 
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
 
-    if (typeof url == 'string') {
+    if (typeof url === 'string') {
       url = environment.remoteAddress + url;
     } else {
       url.url = environment.remoteAddress + url.url;

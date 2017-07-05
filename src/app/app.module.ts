@@ -26,6 +26,8 @@ export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+// https://github.com/ngx-translate/core
+// https://github.com/scttcper/ngx-toastr
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,12 +49,12 @@ export function createTranslateLoader(http: Http) {
         useFactory: createTranslateLoader,
         deps: [Http]
       }
-    }),   //https://github.com/ngx-translate/core
+    }),
     ToastrModule.forRoot({
       timeOut: 3000,
       autoDismiss: true,
       maxOpened: 2
-    })    // https://github.com/scttcper/ngx-toastr
+    })
   ],
   providers: [
     AlertConfig,

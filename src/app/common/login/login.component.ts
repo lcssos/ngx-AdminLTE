@@ -19,7 +19,7 @@ import { AlertConfig } from '../alert';
 })
 export class LoginComponent implements OnInit {
 
-  public user : User = new User ();
+  public user: User = new User ();
   public error: any = {
     show: false,
     msg: ''
@@ -49,13 +49,13 @@ export class LoginComponent implements OnInit {
     this.alertConfig.showStatus = false;
   }
 
-  doLogin(form : NgForm) {
+  doLogin(form: NgForm) {
     if (form.valid) {
       this.loginService.login(this.user)
         .subscribe(
           data => {
             if (data.json().status === 200) {
-              this.router.navigateByUrl("index");
+              this.router.navigateByUrl('index');
             }
           }
         );

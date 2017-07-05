@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
-import swal from 'sweetalert2'
 
 
 @Component( {
@@ -22,7 +21,7 @@ export class IndexComponent implements OnInit {
       this.opts.cancelButtonText = res.cancelBtnText;
     });
 
-    swal.setDefaults(this.opts);
+    // swal.setDefaults(this.opts);
 
   }
 

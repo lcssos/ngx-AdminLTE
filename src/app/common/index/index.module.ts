@@ -16,14 +16,14 @@ import { MenuComponent } from '../menu/menu.component';
 import { RightAsideComponent } from '../right-aside/right-aside.component';
 import { HomeComponent } from '../home/home.component';
 
-
+// https://github.com/toverux/ngsweetalert2
 @NgModule({
   imports: [
     SharedModule,
     ModalModule.forRoot(),
     SweetAlert2Module.forRoot({
       showCancelButton: true
-    }), //https://github.com/toverux/ngsweetalert2
+    }),
     RouterModule.forChild(indexRoutes)
   ],
   exports: [],
