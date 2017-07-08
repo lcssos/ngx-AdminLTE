@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SpinnerService {
-  private _isRunning: boolean = false;
-  private _runningStatus : Subject<boolean> = new Subject<boolean>();
+  private _isRunning = false;
+  private _runningStatus = new Subject<boolean>();
 
   set isRunning(value: boolean) {
     this._runningStatus.next(value);

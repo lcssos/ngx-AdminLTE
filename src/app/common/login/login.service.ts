@@ -16,8 +16,8 @@ export class LoginService {
     return this.http
       .post('auth/webLogin', user)
       .map((response: Response) => {
-        let user = response.json();
-        console.log('user object>' + JSON.stringify(user));
+        const user = response.json();
+        // console.log('user object>' + JSON.stringify(user));
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }

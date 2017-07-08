@@ -46,18 +46,18 @@ export class HttpInterceptorService extends Http {
 
     return super.request(url, options)
       .map(result => {
-        let resultObj = result.json();
-        if(resultObj.status == 200 && resultObj.msg){
+        const resultObj = result.json();
+        if (resultObj.status === 200 && resultObj.msg) {
           this.toastr.success(resultObj.msg);
-        } else if (resultObj.status != 200 && resultObj.msg) {
+        } else if (resultObj.status !== 200 && resultObj.msg) {
           this.alertService.showStatus = true;
           this.alertService.message = resultObj.msg;
         }
         return result;
       })
       .catch(error => {
-        let errorObj = error.json();
-        if (errorObj.status == 401 || errorObj.status == 403) {
+        const errorObj = error.json();
+        if (errorObj.status === 401 || errorObj.status === 403) {
           this.router.navigateByUrl('login');
         } else {
           this.alertService.showStatus = true;

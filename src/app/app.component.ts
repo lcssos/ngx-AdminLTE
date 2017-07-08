@@ -19,7 +19,7 @@ import { SpinnerService } from './common/spinner/spinner.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public spinnerRunning : boolean = false;
+  public spinnerRunning = false;
   constructor(
     public translate: TranslateService,
     private titleService: Title,
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
     this.translate.setDefaultLang('zh');
 
     const browserLang = this.translate.getBrowserLang();
-    console.log("检测到的浏览器语言>" + browserLang);
+    console.log('检测到的浏览器语言>' + browserLang);
     this.translate.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
   }
 

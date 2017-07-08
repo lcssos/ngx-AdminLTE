@@ -3,8 +3,8 @@ export class User {
   username: string;
   nickName: string;
   password: string;
-  remeberMe:boolean;
+  remeberMe: boolean;
   email: string;
   confirmPassword: string;
-  captcha:string;
+  captcha: string;
 }
