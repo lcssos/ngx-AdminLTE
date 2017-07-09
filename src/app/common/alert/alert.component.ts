@@ -7,7 +7,7 @@ import { OnChange } from '../utils';
 import {type} from 'os';
 
 @Component({
-  selector: 'alert, bootstrap-alert',
+  selector: 'alert,bootstrap-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css'],
   animations: [fadeInOut]
@@ -15,15 +15,15 @@ import {type} from 'os';
 export class AlertComponent implements OnInit {
 
   /** Alert type. Provides one of four bootstrap supported contextual classes: `success`, `info`, `warning` and `danger` */
-  @Input() public type: string = 'warning';
+  @Input() public type = 'warning';
   /** If set, displays an inline "Close" button */
   @OnChange()
-  @Input() public dismissible: boolean = false;
+  @Input() public dismissible = false;
   /** Number in milliseconds, after which alert will be closed */
   @Input() public dismissOnTimeout: number | string;
 
   @OnChange()
-  @Input() public isShow: boolean = false;
+  @Input() public isShow = false;
 
 
   /** This event fires immediately after close instance method is called, $event is an instance of Alert component. */
@@ -31,34 +31,44 @@ export class AlertComponent implements OnInit {
   /** This event fires when alert closed, $event is an instance of Alert component */
   @Output() public onClosed: EventEmitter<AlertComponent> = new EventEmitter<AlertComponent>();
 
-  public isClosed: boolean = false;
-  public classes: string = '';
-  public message: string = '';
-  public icon: string = '';
+  public isClosed = false;
+  public classes = '';
+  public message = '';
+  public icon = '';
   public dismissibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   public isShowChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public constructor(_config: AlertConfig) {
     Object.assign(this, _config);
-    switch (this.type){
-      case 'danger': this.icon = 'close';
-      case 'success': this.icon = 'check';
-      case 'warning': this.icon = 'warning';
-      case 'info': this.icon = 'warning';
-      default: this.icon = 'warning';
+    switch (this.type) {
+      case 'danger':
+        this.icon = 'close';
+        break;
+      case 'success':
+        this.icon = 'check';
+        break;
+      case 'warning':
+        this.icon = 'warning';
+        break;
+      case 'info':
+        this.icon = 'warning';
+        break;
+      default:
+        this.icon = 'warning';
+        break;
     }
     this.dismissibleChange.subscribe((dismissible: boolean) => {
       this.classes = this.dismissible ? 'alert-dismissible' : '';
     });
-    this.isShowChange.subscribe((isShow : boolean) => {
+    this.isShowChange.subscribe((isShow: boolean) => {
       this.isShow = isShow;
     });
-    _config.toggleShow.subscribe((isShow : boolean) => {
+    _config.toggleShow.subscribe((isShow: boolean) => {
       this.isShow = isShow;
     });
     _config.messageChange.subscribe((msg: string) => {
       this.message = msg;
-    })
+    });
   }
 
   public ngOnInit(): void {

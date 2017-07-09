@@ -18,18 +18,18 @@ import { Password } from '../models/password';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('chPwdModal') public chPwdModal : ModalDirective;
-  @ViewChild('chPwdForm') public chPwdForm : NgForm;
+  @ViewChild('chPwdModal') public chPwdModal: ModalDirective;
+  @ViewChild('chPwdForm') public chPwdForm: NgForm;
 
-  public pwd : Password = new Password ();
-  public lockSwal : any = {
+  public pwd: Password = new Password ();
+  public lockSwal: any = {
     title: "",
     text: "",
     type: "warning",
     confirmButtonText: ""
   };
 
-  public logoutSwal : any = {
+  public logoutSwal: any = {
     title: "",
     text: "",
     type: "warning",
@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.translate.get("sys.headerModule.dropDown").subscribe((res : any) => {
+    this.translate.get("sys.headerModule.dropDown").subscribe((res: any) => {
       this.lockSwal.title = res.lockTitle;
       this.lockSwal.text = res.lockContent;
       this.lockSwal.confirmButtonText = res.lockBtnText;
@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit {
   doChangePwd () {
     if (this.chPwdForm.valid) {
       this.chPwdModal.hide();
-      this.translate.get("sys.headerModule.changePwdModal.successTips").subscribe((res : any) => {
+      this.translate.get('sys.headerModule.changePwdModal.successTips').subscribe((res : any) => {
         this.toastr.success(res.content, res.title);
       });
 

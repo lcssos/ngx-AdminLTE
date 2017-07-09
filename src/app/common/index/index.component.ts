@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit {
   };
 
   constructor (public translate: TranslateService) {
-    this.translate.get("sys.common").subscribe((res : any) => {
+    this.translate.get('sys.common').subscribe((res: any) => {
       this.opts.confirmButtonText = res.confirmBtnText;
       this.opts.cancelButtonText = res.cancelBtnText;
     });
